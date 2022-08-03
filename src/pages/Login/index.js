@@ -8,10 +8,20 @@ import {
 } from 'react-native';
 import React from 'react';
 import {IlAssesment, IlBtnPrimary} from '../../assets';
-import {fonts} from '../../utils';
+import {fonts, useForm} from '../../utils';
 import {Gap, Input} from '../../components';
 
 const Login = () => {
+
+  const [formData, setFormData] = useForm({
+    email: '',
+    password: '',
+  });
+
+  const onLogin = () => {
+    console.log(`${formData.email}__${formData.password}`);
+  }
+
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -23,15 +33,15 @@ const Login = () => {
       <Gap height={16} />
       <Text style={[styles.text(fonts.primary[500]), {marginHorizontal: 16}]}>Silahkan Masuk,</Text>
       {/* Form */}
-      <TextInput
-        placeholder="Email"
-        style={{marginHorizontal: 16, borderWidth: 1}}
-      />
-      <View style={{height: 16}} />
-      <Input label={'Testing'} placeholder={'Testing'} />
+      <Gap height={16} />
+      <View style={{marginHorizontal: 16}}>
+        <Input label={'Email'} placeholder={'Masukkan Email'} onChangeText={(value) => setFormData('email', value)} />
+        <View style={{height: 16}} />
+        <Input label={'Password'} placeholder={'Masukkan Password'} onChangeText={(value) => setFormData('password', value)} />
+      </View>
       <Gap height={16} />
       {/* Button */}
-      <TouchableOpacity style={{alignItems: 'center'}}>
+      <TouchableOpacity style={{alignItems: 'center'}} onPress={() => onLogin()}>
         <Image source={IlBtnPrimary} style={{width: 32, height: 32}} />
       </TouchableOpacity>
       {/* Subtitle */}
