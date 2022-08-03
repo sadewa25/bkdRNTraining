@@ -11,7 +11,7 @@ import {IlAssesment, IlBtnPrimary} from '../../assets';
 import {fonts, useForm} from '../../utils';
 import {Gap, Input} from '../../components';
 
-const Login = () => {
+const Login = ({navigation}) => {
 
   const [formData, setFormData] = useForm({
     email: '',
@@ -19,7 +19,12 @@ const Login = () => {
   });
 
   const onLogin = () => {
-    console.log(`${formData.email}__${formData.password}`);
+    if (formData.email == 'admin' && formData.password == 'admin') {
+      navigation.navigate('HomeScreen')
+    }
+    else {
+      console.log('Username/ Password Anda Salah');
+    }
   }
 
   return (

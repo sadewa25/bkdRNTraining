@@ -1,17 +1,17 @@
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {useEffect} from 'react';
-import {fonts} from '../../utils';
+import {fonts, strings} from '../../utils';
 import {IlAssesment} from '../../assets';
 
 const SplashScreen = ({navigation}) => {
   const onClick = () => {
-    navigation.navigate('LoginScreen');
+    navigation.navigate(strings.screen.Login);
     console.log('helloWorld');
   };
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('LoginScreen');
+      navigation.navigate(strings.screen.Login);
     }, 3000);
   }, []);
 

@@ -1,8 +1,9 @@
 import {View, Text, Image, TextInput, StyleSheet} from 'react-native';
 import React from 'react';
-import {Login, SplashScreen} from './src/pages';
+import {Home, Login, SplashScreen} from './src/pages';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Router from './src/router';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -10,12 +11,7 @@ const App = () => {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName={'SplashScreen'}
-          screenOptions={{headerShown: false}}>
-          <Stack.Screen name="SplashScreen" component={SplashScreen} />
-          <Stack.Screen name="LoginScreen" component={Login} />
-        </Stack.Navigator>
+        <Router />
       </NavigationContainer>
     </>
     // <FlexBox />
