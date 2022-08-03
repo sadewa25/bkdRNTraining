@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {IlAssesment, IlBtnPrimary} from '../../assets';
-import {fonts, useForm} from '../../utils';
+import {fonts, strings, useForm} from '../../utils';
 import {Gap, Input} from '../../components';
 
 const Login = ({navigation}) => {
@@ -20,7 +20,7 @@ const Login = ({navigation}) => {
 
   const onLogin = () => {
     if (formData.email == 'admin' && formData.password == 'admin') {
-      navigation.navigate('HomeScreen')
+      navigation.navigate(strings.screen.Home)
     }
     else {
       console.log('Username/ Password Anda Salah');
