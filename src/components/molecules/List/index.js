@@ -1,16 +1,15 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { IlAssesment } from '../../../assets'
 
-const List = () => {
+const List = ({urlImage, title, subtitle, onPress}) => {
   return (
-    <View style={{flexDirection: 'row', alignItems: 'center', marginHorizontal: 8, marginTop: 8}}>
-        <Image source={IlAssesment} style={{width: 32, height: 32}} />
+    <TouchableOpacity onPress={onPress} style={{flexDirection: 'row', alignItems: 'center', marginHorizontal: 8, marginTop: 8}}>
+        <Image source={{uri: urlImage}} style={{width: 32, height: 32}} />
         <View style={{marginHorizontal: 8}}>
-            <Text>Chelsea</Text>
-            <Text>Nou Camp Stadium</Text>
+            <Text>{title}</Text>
+            <Text>{subtitle}</Text>
         </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
