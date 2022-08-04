@@ -4,6 +4,9 @@ export const strings = {
         Splash: "SplashScreen",
         Login: "LoginScreen",
         Detail: "DetailScreen",
+    },
+    url: {
+        base: 'https://www.thesportsdb.com/api/v1/json/2/',
     }
   };
   

@@ -10,6 +10,8 @@ import React from 'react';
 import {IlAssesment, IlBtnPrimary} from '../../assets';
 import {fonts, strings, useForm} from '../../utils';
 import {Gap, Input} from '../../components';
+import crashlytics from '@react-native-firebase/crashlytics';
+
 
 const Login = ({navigation}) => {
 
@@ -19,12 +21,14 @@ const Login = ({navigation}) => {
   });
 
   const onLogin = () => {
-    if (formData.email == 'admin' && formData.password == 'admin') {
-      navigation.navigate(strings.screen.Home)
-    }
-    else {
-      console.log('Username/ Password Anda Salah');
-    }
+    // crashlytics().crash();
+    navigation.navigate(strings.screen.Home)
+    // if (formData.email == 'admin' && formData.password == 'admin') {
+    //   navigation.navigate(strings.screen.Home)
+    // }
+    // else {
+    //   console.log('Username/ Password Anda Salah');
+    // }
   }
 
   return (

@@ -1,20 +1,27 @@
 import { View, Text, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { colors, fonts } from '../../utils'
+import { colors, fonts, strings } from '../../utils'
 import { Line, List } from '../../components'
 import axios from 'axios'
 
-const Home = () => {
+const Home = ({navigation}) => {
+
+  const navigateToDetail = (item) => {
+    console.log(`${item.idTeam}__${item.strTeam}`);
+    navigation.navigate(strings.screen.Detail, {
+      strTeam: item.strTeam,
+      strTeamBadge: item.strTeamBadge
+    })
+  }
 
   const [dataTeams, setDataTeams] = useState()
 
   useEffect(() => {
     onLoadData()
   }, [])
-  
 
   const onLoadData = () => {
-    axios.get("https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s=Soccer&c=England")
+    axios.get(`${strings.url.base}search_all_teams.php?s=Soccer&c=England`)
     .then(e => {
       setDataTeams(e.data.teams)
     }).catch(e => console.log(e));
@@ -32,7 +39,7 @@ const Home = () => {
         renderItem={(item) => {
         return (
           <View>
-            <List onPress={() => console.log(item.item.strTeam)} key={item.item.idTeam} urlImage={item.item.strTeamBadge} title={item.item.strTeam} subtitle={item.item.strStadium} />
+            <List onPress={() => navigateToDetail(item.item)} key={item.item.idTeam} urlImage={item.item.strTeamBadge} title={item.item.strTeam} subtitle={item.item.strStadium} />
             <Line height={1} lineColor={colors.secondary} />
           </View>
         )

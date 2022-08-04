@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "580889300885",
+    "project_id": "sanbercode-5e586",
+    "storage_bucket": "sanbercode-5e586.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580889300885:android:cbd8055a3a3f216782f09c",
+        "android_client_info": {
+          "package_name": "com.example.sanbercode_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580889300885-n99k9eeh11dckeacses3o6i56div2uj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKjzgqsJxltok7nk2GajslbWsz9q4rT9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580889300885-n99k9eeh11dckeacses3o6i56div2uj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580889300885:android:c30a7afacfa099be82f09c",
+        "android_client_info": {
+          "package_name": "com.simaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580889300885-n99k9eeh11dckeacses3o6i56div2uj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKjzgqsJxltok7nk2GajslbWsz9q4rT9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580889300885-n99k9eeh11dckeacses3o6i56div2uj0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
