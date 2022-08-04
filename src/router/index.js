@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { Detail, Home, Login, SplashScreen } from '../pages'
+import { Detail, Home, Login, Register, SplashScreen } from '../pages'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { strings } from '../utils';
 
@@ -15,6 +15,7 @@ const Router = () => {
             <Stack.Screen name={strings.screen.Login} component={Login} />
             <Stack.Screen name={strings.screen.Home} component={Home} />
             <Stack.Screen name={strings.screen.Detail} component={Detail} />
+            <Stack.Screen name={strings.screen.Register} component={Register} />
         </Stack.Navigator>
     )
 }

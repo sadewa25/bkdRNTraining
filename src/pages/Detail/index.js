@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const Detail = ({route, navigation}) => {
 
-  const {strTeam, strTeamBadge} = route.params
+  const {strTeam, strTeamBadge, idLeague} = route.params
 
   useEffect(() => {
     onLoadSeason()
@@ -15,7 +15,7 @@ const Detail = ({route, navigation}) => {
   const [dataSeason, setDataSeason] = useState()
   
   const onLoadSeason = () => {
-    axios.get(`${strings.url.base}search_all_seasons.php?id=4849`).then(e => {
+    axios.get(`${strings.url.base}search_all_seasons.php?id=${idLeague}`).then(e => {
       console.log(e.data);
       setDataSeason(e.data.seasons)
     })
@@ -27,7 +27,6 @@ const Detail = ({route, navigation}) => {
     id: data[index].strSeason,
     title: data[index].strSeason
   });
-  
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>

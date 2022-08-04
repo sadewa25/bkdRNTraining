@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {IlAssesment, IlBtnPrimary} from '../../assets';
-import {fonts, strings, useForm} from '../../utils';
+import {fonts, showSuccess, strings, useForm} from '../../utils';
 import {Gap, Input} from '../../components';
 import crashlytics from '@react-native-firebase/crashlytics';
 
@@ -22,13 +22,18 @@ const Login = ({navigation}) => {
 
   const onLogin = () => {
     // crashlytics().crash();
-    navigation.navigate(strings.screen.Home)
+    showSuccess('Berhasil Login')
+    //navigation.navigate(strings.screen.Home)
     // if (formData.email == 'admin' && formData.password == 'admin') {
     //   navigation.navigate(strings.screen.Home)
     // }
     // else {
     //   console.log('Username/ Password Anda Salah');
     // }
+  }
+
+  const navToRegister = () => {
+    navigation.navigate(strings.screen.Register)
   }
 
   return (
@@ -56,7 +61,9 @@ const Login = ({navigation}) => {
       {/* Subtitle */}
       <Gap height={16} />
       <TouchableOpacity
-        style={{flexDirection: 'row', flex: 1, justifyContent: 'center'}}>
+        style={{flexDirection: 'row', flex: 1, justifyContent: 'center'}}
+        onPress = {() => navToRegister()}
+        >
         <Text
           style={{
             color: 'black',

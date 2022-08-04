@@ -10,7 +10,8 @@ const Home = ({navigation}) => {
     console.log(`${item.idTeam}__${item.strTeam}`);
     navigation.navigate(strings.screen.Detail, {
       strTeam: item.strTeam,
-      strTeamBadge: item.strTeamBadge
+      strTeamBadge: item.strTeamBadge,
+      idLeague: item.idLeague
     })
   }
 

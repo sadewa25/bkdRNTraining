@@ -4,37 +4,18 @@ import {Home, Login, SplashScreen} from './src/pages';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Router from './src/router';
+import FlashMessage from 'react-native-flash-message';
 
 const App = () => {
-  const Stack = createNativeStackNavigator();
 
   return (
     <>
       <NavigationContainer>
         <Router />
       </NavigationContainer>
+      <FlashMessage position={'top'} />
     </>
-    // <FlexBox />
-    // <View>
-    //   {/* <Text>App</Text>
-    //   <Text style={styles.text}>{myName} Usia Saya {myAge} Func {sampel()}</Text>
-    //   <Image source={{uri: 'https://placeimg.com/640/480/tech'}} style={styles.image} />
-    //   <TextInput placeholder='masukkan nama anda' style={{borderWidth: 1}} keyboardType='numeric' /> */}
-    //   {/* <Login /> */}
-    //   <FlexBox />
-    // </View>
   );
 };
-
-const styles = StyleSheet.create({
-  text: {
-    color: '#2196f3',
-    fontSize: 16,
-  },
-  image: {
-    width: 64,
-    height: 64,
-  },
-});
 
 export default App;
