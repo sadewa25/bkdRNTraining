@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {IlAssesment, IlBtnPrimary} from '../../assets';
-import {fonts, showSuccess, strings, useForm} from '../../utils';
+import {fonts, getData, showError, showSuccess, storeData, strings, useForm} from '../../utils';
 import {Gap, Input} from '../../components';
 import crashlytics from '@react-native-firebase/crashlytics';
+import axios from 'axios';
 
 
 const Login = ({navigation}) => {
@@ -20,16 +21,33 @@ const Login = ({navigation}) => {
     password: '',
   });
 
+  useEffect(() => {
+    getData('isLogin').then(e => {
+      if (e == true) {
+        navigation.replace(strings.screen.Home)
+      }
+    })
+  }, [])
+  
+
+  const onExistUsers = () => {
+    axios.post(`${strings.url.basePost}users/login${strings.url.keyPost}`, {
+      "username": formData.email,
+      "password": formData.password
+    }).then(e => {
+      if (e.data.users.length > 0) {
+        showSuccess('Berhasil Login')
+        storeData('isLogin', true);
+        navigation.replace(strings.screen.Home)
+      } else {
+        showError('Username/ Password Salah')
+      }
+    })
+  }
+
   const onLogin = () => {
+    onExistUsers()
     // crashlytics().crash();
-    showSuccess('Berhasil Login')
-    //navigation.navigate(strings.screen.Home)
-    // if (formData.email == 'admin' && formData.password == 'admin') {
-    //   navigation.navigate(strings.screen.Home)
-    // }
-    // else {
-    //   console.log('Username/ Password Anda Salah');
-    // }
   }
 
   const navToRegister = () => {

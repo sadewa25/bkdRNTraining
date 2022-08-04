@@ -1,6 +1,6 @@
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {useEffect} from 'react';
-import {fonts, strings} from '../../utils';
+import {fonts, storeData, strings} from '../../utils';
 import {IlAssesment} from '../../assets';
 
 const SplashScreen = ({navigation}) => {
@@ -11,7 +11,8 @@ const SplashScreen = ({navigation}) => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate(strings.screen.Login);
+      navigation.replace(strings.screen.Login);
+      storeData('isSplash', true);
     }, 3000);
   }, []);
 

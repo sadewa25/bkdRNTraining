@@ -4,7 +4,7 @@ import { Gap, Input } from '../../components'
 import { colors, fonts, strings, useForm } from '../../utils'
 import axios from 'axios'
 
-const Register = () => {
+const Register = ({navigation}) => {
   const [formData, setFormData] = useForm({
       email: '',
       password: '',
@@ -15,7 +15,10 @@ const Register = () => {
       "username": formData.email,
       "password": formData.password
     }).then(e => {
-      console.log(e.data);
+      let data = e.data
+      if (data.status == "success") {
+        navigation.goBack();
+      }
     })
   }
 
